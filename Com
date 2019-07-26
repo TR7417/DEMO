@@ -1,0 +1,57 @@
+package AliYun;
+
+import java.util.Arrays;
+
+/**
+ * @author 谭睿大神
+ * 比较器的测试
+ * 实现自定义类的比较方法，通过Arrays.sort()实现排序
+ * 实现compareTo()这个方法就可以实现排序
+ * @create 2019/7/26
+ * @company 梦想有限公司!
+ * @since 1.0.0
+ */
+
+class Person implements Comparable<Person>{
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person类对象名: "+this.name+"  Person类的年龄"+this.age+"\n";
+    }
+    public Person(String name,int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int compareTo(Person p) {
+        return this.age - p.age;
+    }
+}
+
+public class 比较器 {
+    public static void main(String[] args) {
+      Person[] p = new Person[]{
+                    new Person("TT",18),
+                    new Person("TR",30),
+                    new Person("TH",0)
+      };
+        Arrays.sort(p);
+        System.out.println(Arrays.toString(p));
+    }
+}
